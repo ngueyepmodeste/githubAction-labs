@@ -1,7 +1,9 @@
 name: Hello World CI
+
 on: [push]
- jobs:
-   greet:
-     runs-on: ubuntu-latest
-     steps:
-      - run: echo " Bonjour depuis GitHub Action !! "
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Bonjour depuis GitHub Actions !!"
