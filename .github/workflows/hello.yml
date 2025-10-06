@@ -8,11 +8,11 @@ jobs:
     timeout-minutes: 20
     steps:
        - name: installer les paquets systems      
-         run:  apt-get update -y 
+         run: sudo apt-get update -y 
 
        - name: mise à jours du system 
-         run: apt-get upgrade -y 
+         run: sudo apt-get upgrade -y 
        - name: installer nginx && docker 
-         run: apt-get install nginx -y && apt-get install docker.io -y
+         run: sudo apt-get install nginx -y && sudo apt-get install docker.io -y
        - name: test 
-         run: docker --version && systemctl nginx status 
+         run: sudo docker --version && sudo systemctl nginx status 
