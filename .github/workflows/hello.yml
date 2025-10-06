@@ -5,14 +5,18 @@ on: [push]
 jobs:
   test2:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
+       - name: checkout
+         uses: actions/checkout@v4
+
        - name: installer les paquets systems      
          run: sudo apt-get update -y 
 
        - name: mise à jours du system 
          run: sudo apt-get upgrade -y 
+
        - name: installer nginx && docker 
-         run: sudo apt-get install nginx -y && sudo apt-get install docker.io -y
+         run: sudo apt-get install nginx -y && sudo apt-get install ansible -y 
+
        - name: test 
-         run: sudo docker --version && sudo systemctl nginx status 
+         run: sudo docker --version && ansible --version && sudo systemctl nginx status 
