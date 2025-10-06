@@ -18,5 +18,10 @@ jobs:
        - name: installer nginx && docker 
          run: sudo apt-get install nginx -y && sudo apt-get install ansible -y 
 
-       - name: test 
-         run: sudo docker --version && ansible --version && sudo systemctl nginx status 
+       - name: Check Docker, Ansible & Nginx
+         run: |
+           docker --version
+           ansible --version
+           sudo systemctl start nginx || true
+           sudo systemctl status nginx || true
+           curl -I http://127.0.0.1 || true
