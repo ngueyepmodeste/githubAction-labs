@@ -1,6 +1,17 @@
 name: CI
 
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Environnement de déploiement"
+        type: choice
+        options: [staging, production]
+        default: staging
+      debug:
+        description: "Activer les logs détaillés ?"
+        type: boolean
+        default: false
 
 jobs:
   test2:
